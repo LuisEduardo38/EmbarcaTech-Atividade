@@ -1,0 +1,37 @@
+{
+    "version": 1,
+    "author": "Eduardo Souza",
+    "editor": "wokwi",
+    "parts": [
+      {
+        "type": "board-pi-pico-w",
+        "id": "pico",
+        "top": 0,
+        "left": 0,
+        "attrs": { "builder": "pico-sdk" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led1",
+        "top": 25.2,
+        "left": -130.6,
+        "attrs": { "color": "red" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": 120,
+        "left": -144.55,
+        "rotate": 90,
+        "attrs": { "value": "1000" }
+      }
+    ],
+    "connections": [
+      [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+      [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+      [ "r1:1", "led1:C", "green", [ "h0" ] ],
+      [ "r1:2", "pico:GND.4", "green", [ "v18", "h121.25" ] ],
+      [ "led1:A", "pico:GP13", "green", [ "v0" ] ]
+    ],
+    "dependencies": {}
+  }
